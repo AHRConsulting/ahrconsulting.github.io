@@ -1,0 +1,66 @@
+<svg
+    viewBox="0 0 512 512"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="AHR Assurance"
+>
+    <!-- Background -->
+    <rect
+        x="32"
+        y="32"
+        width="448"
+        height="448"
+        rx="96"
+        fill="#000000"
+    />
+
+    <!-- a -->
+    <path
+        d="M134.8 184.3 H192 V287.7 H137.9 L137.3 234.6 H190.8"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="7.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- h stem -->
+    <path
+        d="M225.6 132.6 V339.4"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="7.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- h arm -->
+    <path
+        d="M285.6 291.2 V184 H226"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="7.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- r -->
+    <path
+        d="M321.9 291 V184.1 H377.8"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="7.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- Assurance check -->
+    <path
+        d="M216 383 L246 411 L300 359"
+        fill="none"
+        stroke="#22C55E"
+        stroke-width="11"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+</svg>

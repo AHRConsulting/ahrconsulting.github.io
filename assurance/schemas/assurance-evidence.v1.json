@@ -1,0 +1,423 @@
+{
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "integer"
+    },
+    "verificationId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "correlationSource": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "testId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "testName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "executionState": {
+      "enum": [
+        "Completed",
+        "Failed",
+        "Canceled",
+        "Incomplete"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "durationTicks": {
+          "type": "integer"
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "business": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "capabilities": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "outcomes": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/properties/evidence/properties/scenarios/items/properties/business/properties/capabilities/items"
+                    }
+                  },
+                  "rules": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/properties/evidence/properties/scenarios/items/properties/business/properties/capabilities/items"
+                    }
+                  },
+                  "risks": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/properties/evidence/properties/scenarios/items/properties/business/properties/capabilities/items"
+                    }
+                  },
+                  "objectives": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/properties/evidence/properties/scenarios/items/properties/business/properties/capabilities/items"
+                    }
+                  },
+                  "references": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "provider": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "provider",
+                        "key",
+                        "url"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "description",
+                  "capabilities",
+                  "outcomes",
+                  "rules",
+                  "risks",
+                  "objectives",
+                  "references"
+                ],
+                "additionalProperties": false
+              },
+              "references": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/evidence/properties/scenarios/items/properties/business/properties/references/items"
+                }
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "phase": {
+                      "enum": [
+                        "Given",
+                        "When",
+                        "Then"
+                      ]
+                    },
+                    "keyword": {
+                      "enum": [
+                        "Given",
+                        "When",
+                        "Then",
+                        "And"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "verdict": {
+                      "enum": [
+                        "Satisfied",
+                        "Unsatisfied",
+                        "NotEvaluated",
+                        "Inconclusive"
+                      ]
+                    },
+                    "explanation": {
+                      "type": "string"
+                    },
+                    "expected": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "actual": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "durationTicks": {
+                      "type": "integer"
+                    },
+                    "executionInterrupted": {
+                      "type": "boolean"
+                    },
+                    "parameters": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "phase",
+                    "keyword",
+                    "description",
+                    "verdict",
+                    "explanation",
+                    "expected",
+                    "actual",
+                    "durationTicks",
+                    "executionInterrupted",
+                    "parameters"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "outlineId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "example": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/evidence/properties/scenarios/items/properties/steps/items/properties/parameters/items"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "description",
+              "business",
+              "references",
+              "steps",
+              "outlineId",
+              "example"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "executionFailures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "exceptionType": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "default": null
+              },
+              "detailsWithheld": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "deliveryFailures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/properties/evidence/properties/executionFailures/items"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "startedAt",
+        "durationTicks",
+        "scenarios",
+        "executionFailures",
+        "deliveryFailures"
+      ],
+      "additionalProperties": false
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          },
+          "scenarioId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "stepIndex": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "default": null
+          },
+          "available": {
+            "type": "boolean",
+            "default": true
+          },
+          "detailsWithheld": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "mediaType",
+          "reference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "attachmentsDirectory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "assuranceVersion": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "verificationId",
+    "correlationId",
+    "correlationSource",
+    "producer",
+    "testId",
+    "testName",
+    "executionState",
+    "evidence",
+    "attachments"
+  ],
+  "additionalProperties": false
+}

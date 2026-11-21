@@ -1,0 +1,1 @@
+function e(e,t){return`${e}-${t}`}function t(e,t,n,r){return e===`/`&&t===`/[product]`&&r||e===`/[product]`&&t===`/`&&n===`popstate`}var n=!1;function r(){n=!0}function i(){return n}function a(){let e=n;return n=!1,e}export{a,e as i,i as n,t as r,r as t};
